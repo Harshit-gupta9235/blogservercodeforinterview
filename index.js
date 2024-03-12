@@ -1,0 +1,15 @@
+const express=require("express")
+const app=express()
+const cors=require("cors")
+const connectdb=require("./config/database")
+const routes=require("./routes/route")
+require("dotenv").config()
+app.use(express.json())
+app.use(cors())
+app.use(express.urlencoded({extended:false}))
+connectdb()
+app.use('/',routes)
+
+app.listen(process.env.PORT,()=>{
+    console.log("server started successfully")
+})

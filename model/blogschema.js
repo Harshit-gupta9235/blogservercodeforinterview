@@ -1,0 +1,36 @@
+const mongoose=require("mongoose")
+const userschema= new mongoose.Schema({
+    title:{
+        type:String,
+        required:true,
+    },
+    text:{
+        type:String,
+        required:true,
+    },
+    username:{
+        type:String,
+        required:true,
+    },
+    categories:{
+        type:String,
+        required:true,
+    },
+    createdat:{
+        type:Date,
+        required:true,
+    },
+    blogs:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"auth",
+    },
+    thumbnail:{
+        type:String,
+        required:true,
+    },
+    public_id:{
+        type:String,
+        required:true,
+    }
+})
+module.exports=mongoose.model("blogs",userschema)
